@@ -1,0 +1,12 @@
+---
+
+#- name: Create tower Ping job template
+#  tower_job_template:
+#    name: Ping
+#   job_type: run
+#   inventory: "{{ organization_name }}_Linux servers"
+#   machine_credential: "foo_ssh_credential"
+#   project: "Foo"
+#   playbook: "hellow_world.yml"
+#   state: present
+#   tower_verify_ssl: "{{ verify_ssl }}"

@@ -1,0 +1,24 @@
+---
+
+- name: Add tower inventory
+  tower_inventory:
+    name: "{{ item.name }}"
+    description: "{{ item.description }}"
+    organization:  "{{ item.organization }}"
+    state: "{{ item.state }}"
+    tower_verify_ssl: "{{ verify_ssl }}"
+  with_items: "{{ tower_team.tower_inventories }}"
+
+
+- name: Add tower host
+  tower_host:
+    name: "{{ item.1.name }}"
+    description: "{{ item.1.description }}"
+    inventory: "{{ item.0.name }}"
+    state: "{{ item.1.state }}"
+    tower_verify_ssl: "{{ verify_ssl }}"
+  with_subelements:
+    - "{{ tower_team.tower_inventories }}"
+    - tower_hosts
+
+

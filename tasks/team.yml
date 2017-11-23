@@ -1,0 +1,9 @@
+---
+
+- name: Create tower team
+  tower_team:
+    name: "{{ tower_team.name }}"
+    description: "{{ tower_team.description }}"
+    organization: "{{ tower_team.organization }}"
+    state: "{{ tower_team.state }}"
+    tower_verify_ssl: "{{ verify_ssl }}"
