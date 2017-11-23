@@ -24,7 +24,7 @@ Example Playbook
 
 - hosts: all
   vars:
-    organization: "VUIT"
+    organization: "Some ORG"
     organization_state: present
     organization_description: "Organisation description "
     verify_ssl: False  
@@ -55,7 +55,7 @@ Example Playbook
               scm_type: git
               scm_branch: "master"
               scm_update_on_launch: true
-              scm_url: "https://git.ica.ia-hc.net/Platform_services_team/Playbooks.git"
+              scm_url: "https://git.some.url"
               state: present
         tower_inventories:
             - name: "Linux servers example"
@@ -94,7 +94,7 @@ Example Playbook
 License
 -------
 
-BSD
+GNU GENERAL PUBLIC LICENSE Version 3
 
 Author Information
 ------------------
