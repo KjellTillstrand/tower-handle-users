@@ -1,23 +1,30 @@
 tower-handle-users
 =========
 
-This role calls the tower-cli to create organizations, teams, users etc. The idea is to let the individual teams to administer the tower user handling via source controlled own playbook. 
+This role calls the tower-cli to create organizations, teams, users etc. The idea is to let the individual teams to administer the tower user handling via source controlled own playbook. Primarily using the Ansible-tower Web Infrastructure Module but somtimes falling back to tower-cli commands as the Ansible module is not impelmenting all parts of the cli. 
+
+At the moment this cant be used to fully automate the towe state as the CLI seemes to be missing metods. For example associating teams with Permissions. This role has been testet against AWX run in Docker on a Centos 7 host. The host has tower-cli installed and configured with the user, passwod and remote adress. 
+
+
+
 
 Requirements
 ------------
 
-tower-cli must be installed and configured 
+tower-cli must be installed and configured against a Ansible Tower instance. 
 
 
 Role Variables
 --------------
 
-see example 
+See the example playbook.  
 
 Dependencies
 ------------
 
-N/A
+python >= 2.6
+ansible-tower-cli >= 3.0.2
+
 
 Example Playbook
 ----------------
