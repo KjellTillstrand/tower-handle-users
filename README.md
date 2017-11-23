@@ -22,6 +22,7 @@ N/A
 Example Playbook
 ----------------
 
+```
 - hosts: all
   vars:
     organization: "Some ORG"
@@ -90,6 +91,8 @@ Example Playbook
                  state: present
   roles:
   - role: tower-handle-users
+
+``` 
 
 License
 -------
