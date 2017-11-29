@@ -3,6 +3,6 @@
 - include: organization.yml
 - include: team.yml
 - include: users.yml
-#- include: credentials.yml
+- include: credentials.yml
 - include: inventories.yml
 - include: projects.yml

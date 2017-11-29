@@ -3,17 +3,17 @@
 #
 # As the user should be present via a LDAP login we only need to associate the user with the
 # correct team
-#- name: Add tower user
-#  tower_user:
-#    username: "{{ item.username }}"
-#   password: "{{ item.password }}"
-#   email: "{{ item.email }}"
-#   first_name: "{{ item.first_name }}"
-#    last_name: "{{ item.last_name }}"
-#   superuser: "{{ item.superuser }}"
-#    state: "{{ item.state }}"
-#    tower_verify_ssl: "{{ verify_ssl }}"
-#  with_items: "{{ tower_team.tower_users }}"
+- name: Add tower user
+  tower_user:
+    username: "{{ item.username }}"
+    password: "{{ item.password }}"
+    email: "{{ item.email }}"
+    first_name: "{{ item.first_name }}"
+    last_name: "{{ item.last_name }}"
+    superuser: "{{ item.superuser }}"
+    state: "{{ item.state }}"
+    tower_verify_ssl: "{{ verify_ssl }}"
+  with_items: "{{ tower_team.tower_users }}"
 
 
 - name: Associate users whith team
