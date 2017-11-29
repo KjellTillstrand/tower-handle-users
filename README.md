@@ -30,7 +30,13 @@ Example Playbook
 ----------------
 
 ```
+
+---
+
 - hosts: all
+  roles: 
+  - kjelltillstrand.tower-handle-users 
+
   vars:
     organization: "Some ORG"
     organization_state: present
@@ -42,24 +48,25 @@ Example Playbook
         organization: "{{ organization }}"
         state: present
         tower_users:
-           - username: kjelleman2
-           # password: password
-           # email: jdoe@example.org
-           # first_name: John
-           # last_name: Doe
-           # superuser: false
-           # state: present
-           - username: jtoe
-           # password: password
-           # email: jtoe@example.org
-           # first_name: Jane
-           # last_name: Toe
-           # superuser: true
-           # state: present
+            - username: kjelleman2
+              password: password
+              email: jdoe@example.org
+              first_name: John
+              last_name: Doe
+              superuser: false
+              state: present
+            - username: jtoe
+              password: password
+              email: jtoe@example.org
+              first_name: Jane
+              last_name: Toe
+              superuser: true
+              state: present
         tower_projects:
             - name: "Team1_playbooks"
               description: "The playbooks for team 1 scm "
               organization: "{{ organization }}"
+              scm_credential: scm_credential
               scm_type: git
               scm_branch: "master"
               scm_update_on_launch: true
@@ -89,16 +96,13 @@ Example Playbook
                     description: "Server4"
                     state: present
         tower_credentials:
-            - tower_credential:
-                 name: "foo_scm_credential"
-                 organization: "{{ organization }}"
-                 kind: "scm"
-                 description: This is a git credential for project Foo
-                 user: extktd
-                 state: present
-  roles:
-  - role: tower-handle-users
-
+            - name: "scm_credential"
+              organization: "{{ organization }}"
+              credential_type: "Source Control"
+              description: This is a git credential for project Foo
+              user: user
+              password: password
+              state: present
 ``` 
 
 License
@@ -109,4 +113,4 @@ GNU GENERAL PUBLIC LICENSE Version 3
 Author Information
 ------------------
 
-Authored by Kjel Tillstrand
+Authored by Kjell Tillstrand

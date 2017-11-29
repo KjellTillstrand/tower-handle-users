@@ -22,3 +22,11 @@
     - tower_hosts
 
 
+
+- name: Associate inventories with teams
+  command: tower-cli role grant --type=admin --team="{{ tower_team.name }}" --inventory="{{ item.name }}"
+  with_items:
+    - "{{ tower_team.tower_inventories }}"
+  register: result
+  changed_when: result.stdout | search("true")
+
