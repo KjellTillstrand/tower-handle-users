@@ -5,7 +5,7 @@ This role calls the tower-cli to create organizations, teams, users etc. The ide
 
 At the moment this cant be used to fully automate the towe state as the CLI seemes to be missing metods. For example associating teams with Permissions. This role has been testet against AWX run in Docker on a Centos 7 host. The host has tower-cli installed and configured with the user, passwod and remote adress. 
 
-.
+
 
 
 Requirements
